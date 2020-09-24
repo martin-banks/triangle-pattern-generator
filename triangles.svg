@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1000px" height="1000" viewBox="0 0 1000 1000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="gradient" x1="0" x2="0" y1="1" y2="0">
+      <stop offset="0" stop-color="firebrick" />
+      <stop offset="0.5" stop-color="orange" />
+      <stop offset="1" stop-color="gold" />
+    </linearGradient>
+    <mask id="hole-mask">
+      <polygon
+      points="42,42 58,42 50,58"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="142,42 158,42 150,58"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="442,42 458,42 450,58"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="600,42 608,58 592,58"
+      style="
+        fill: white;
+      "/>
+
+<!-- end of row -->
+
+<polygon
+      points="188.5,138.5 211.5,138.5 200,161.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="488.5,138.5 511.5,138.5 500,161.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="650,138.5 661.5,161.5 638.5,161.5"
+      style="
+        fill: white;
+      "/>
+
+<!-- end of row -->
+
+<polygon
+      points="0,235 15,265 -15,265"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="100,235 115,265 85,265"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="335,235 365,235 350,265"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="400,235 415,265 385,265"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="935,235 965,235 950,265"
+      style="
+        fill: white;
+      "/>
+
+<!-- end of row -->
+
+<polygon
+      points="50,331.5 68.5,368.5 31.499999999999996,368.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="81.5,331.5 118.5,331.5 100,368.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="281.5,331.5 318.5,331.5 300,368.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="450,331.5 468.5,368.5 431.5,368.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="481.5,331.5 518.5,331.5 500,368.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="681.5,331.5 718.5,331.5 700,368.5"
+      style="
+        fill: white;
+      "/>
+
+<!-- end of row -->
+
+<polygon
+      points="0,428 22,472 -22,472"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="128,428 172,428 150,472"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="200,428 222,472 178,472"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="228,428 272,428 250,472"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="600,428 622,472 578,472"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="700,428 722,472 678,472"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="800,428 822,472 778,472"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="828,428 872,428 850,472"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="900,428 922,472 878,472"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="928,428 972,428 950,472"
+      style="
+        fill: white;
+      "/>
+
+<!-- end of row -->
+
+<polygon
+      points="150,524.5 175.5,575.5 124.5,575.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="274.5,524.5 325.5,524.5 300,575.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="350,524.5 375.5,575.5 324.5,575.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="374.5,524.5 425.5,524.5 400,575.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="450,524.5 475.5,575.5 424.5,575.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="474.5,524.5 525.5,524.5 500,575.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="574.5,524.5 625.5,524.5 600,575.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="650,524.5 675.5,575.5 624.5,575.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="674.5,524.5 725.5,524.5 700,575.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="750,524.5 775.5,575.5 724.5,575.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="874.5,524.5 925.5,524.5 900,575.5"
+      style="
+        fill: white;
+      "/>
+
+<!-- end of row -->
+
+<polygon
+      points="0,621 28.999999999999996,679 -28.999999999999996,679"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="21.000000000000004,621 79,621 50,679"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="200,621 229,679 171,679"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="221,621 279,621 250,679"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="300,621 329,679 271,679"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="421,621 479,621 450,679"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="500,621 529,679 471,679"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="521,621 579,621 550,679"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="600,621 629,679 571,679"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="700,621 729,679 671,679"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="721,621 779,621 750,679"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="821,621 879,621 850,679"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="921,621 979,621 950,679"
+      style="
+        fill: white;
+      "/>
+
+<!-- end of row -->
+
+<polygon
+      points="-50,717.5 -17.5,782.5 -82.5,782.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="-32.5,717.5 32.5,717.5 0,782.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="50,717.5 82.5,782.5 17.5,782.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="67.5,717.5 132.5,717.5 100,782.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="150,717.5 182.5,782.5 117.5,782.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="167.5,717.5 232.5,717.5 200,782.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="250,717.5 282.5,782.5 217.5,782.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="267.5,717.5 332.5,717.5 300,782.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="367.5,717.5 432.5,717.5 400,782.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="450,717.5 482.5,782.5 417.5,782.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="467.5,717.5 532.5,717.5 500,782.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="550,717.5 582.5,782.5 517.5,782.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="567.5,717.5 632.5,717.5 600,782.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="650,717.5 682.5,782.5 617.5,782.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="767.5,717.5 832.5,717.5 800,782.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="850,717.5 882.5,782.5 817.5,782.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="867.5,717.5 932.5,717.5 900,782.5"
+      style="
+        fill: white;
+      "/>
+
+<!-- end of row -->
+
+<polygon
+      points="0,814 36,886 -36,886"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="14,814 86,814 50,886"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="100,814 136,886 64,886"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="114,814 186,814 150,886"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="200,814 236,886 164,886"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="214,814 286,814 250,886"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="300,814 336,886 264,886"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="314,814 386,814 350,886"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="400,814 436,886 364,886"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="414,814 486,814 450,886"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="500,814 536,886 464,886"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="514,814 586,814 550,886"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="600,814 636,886 564,886"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="614,814 686,814 650,886"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="700,814 736,886 664,886"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="714,814 786,814 750,886"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="800,814 836,886 764,886"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="900,814 936,886 864,886"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="914,814 986,814 950,886"
+      style="
+        fill: white;
+      "/>
+
+<!-- end of row -->
+
+<polygon
+      points="-50,910.5 -10.500000000000002,989.5 -89.5,989.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="-39.5,910.5 39.5,910.5 0,989.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="50,910.5 89.5,989.5 10.500000000000002,989.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="60.5,910.5 139.5,910.5 100,989.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="150,910.5 189.5,989.5 110.5,989.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="160.5,910.5 239.5,910.5 200,989.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="250,910.5 289.5,989.5 210.5,989.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="260.5,910.5 339.5,910.5 300,989.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="350,910.5 389.5,989.5 310.5,989.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="360.5,910.5 439.5,910.5 400,989.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="450,910.5 489.5,989.5 410.5,989.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="460.5,910.5 539.5,910.5 500,989.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="550,910.5 589.5,989.5 510.5,989.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="560.5,910.5 639.5,910.5 600,989.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="650,910.5 689.5,989.5 610.5,989.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="660.5,910.5 739.5,910.5 700,989.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="750,910.5 789.5,989.5 710.5,989.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="760.5,910.5 839.5,910.5 800,989.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="850,910.5 889.5,989.5 810.5,989.5"
+      style="
+        fill: white;
+      "/>
+<polygon
+      points="860.5,910.5 939.5,910.5 900,989.5"
+      style="
+        fill: white;
+      "/>
+    </mask>
+  </defs>
+  <rect width="1000" height="1000" mask="url(#hole-mask)" fill="url(#gradient)"></rect>
+</svg>
