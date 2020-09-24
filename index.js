@@ -1,16 +1,21 @@
 const fs = require('fs')
 
-const hyp = 100 // Horizintal "size" of the triangle
+const hyp = 10 // Horizintal "size" of the triangle
 const rowCount = 10 // How many rows to render
 // How many triangles per row.
 // There should double + 2 the number of rows for a square due to the overlap
 // from the alternative inverted layout
 // This allows for the triangles that clip off at either side
-const trianglesPerRow = (rowCount * 2)
+const fillEdges = false
 // Which direction should the triangles fade away to?
 const fadeDown = true
+// Ratio of the viewbox
+const ratio = [1, 1]
 // Size the svg should be rendered at in the dom
-const size = 1000
+const size = [1000 * ratio[0], 1000 * [1]]
+const trianglesPerRow = (rowCount * (2 * ratio[0])) + (fillEdges ? 2 : 0)
+const viewBox = [hyp * rowCount * ratio[0], hyp * rowCount * ratio[1]]
+
 
 
 // Each triangle (poly gon) contains 3 pairs of coords; one pair for each  node of the triangle
@@ -46,7 +51,10 @@ function createRow (rowIndex) {
   const polygons = [... new Array(trianglesPerRow)]
     .map((x, i) => [firstPoints[i], secondPoints[i], thirdPoints[i]])
     .filter((x, i) => ((Math.random() - progress) + 0.2) > 0.1)
+    // .filter((x, i) => !fillEdges ? (x[0] < 0 || x[1] < 0 || x[2] < 0) : true)
+    .filter((x, i, a) => ((!fillEdges) && (x[0][0] < 0 || x[1][0] < 0 || x[2][0] < 0)) ? false : true)
     .map((x, i) => `<polygon
+      data-row="${i}"
       points="${x[0].join(',')} ${x[1].join(',')} ${x[2].join(',')}"
       style="
         fill: white;
@@ -56,36 +64,40 @@ function createRow (rowIndex) {
   return polygons
 }
 
-// fill: rgba(
-//   ${Math.floor((50 * Math.random()) + 200)},
-//   ${Math.floor(Math.random() * 50)},
-//   ${Math.floor(Math.random() * 50)},
-// 1);
 
 const multirowPolygon = [... new Array(rowCount)]
   .map((x, i) => createRow(i))
-  .join('\n\n<!-- end of row -->\n\n')
+  .join('\n<!-- end of row -->\n')
 
+
+const gradientColors = [
+  { color: 'firebrick', offset: '0' },
+  { color: 'orange', offset: '0.5' },
+  { color: 'gold', offset: '1' },
+]
+const gradientDirection = {
+  x1: 0,
+  x2: 0,
+  y1: 1,
+  y2: 0,
+}
 
 // ? What is the viewbox ?
 // viewbox defines the raw size of the space the SVG elements are drawn in.
 // Each element's (polygon, rect, circle etc) coords is based of of the viewboxes space
 // The width and height properties control how large the svg is rendered in the DOM
 // It's like having 1000px square jpg rendered in a 100px square img tag
-
 const svg = `<?xml version="1.0" encoding="UTF-8"?>
-<svg width="${size}px" height="${size}" viewBox="0 0 1000 1000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="${size[0]}px" height="${size[1]}px" viewBox="0 0 ${viewBox[0]} ${viewBox[1]}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
-    <linearGradient id="gradient" x1="0" x2="0" y1="1" y2="0">
-      <stop offset="0" stop-color="firebrick" />
-      <stop offset="0.5" stop-color="orange" />
-      <stop offset="1" stop-color="gold" />
+    <linearGradient id="gradient" x1="${gradientDirection.x1}" x2="${gradientDirection.x2}" y1="${gradientDirection.y1}" y2="${gradientDirection.y2}">
+      ${gradientColors.map(g => `<stop offset="${g.offset}" stop-color="${g.color}" />`).join(' ')}
     </linearGradient>
     <mask id="hole-mask">
       ${multirowPolygon}
     </mask>
   </defs>
-  <rect width="1000" height="1000" mask="url(#hole-mask)" fill="url(#gradient)"></rect>
+  <rect width="${viewBox[0]}px" height="${viewBox[1]}px" mask="url(#hole-mask)" fill="url(#gradient)"></rect>
 </svg>`
 
 fs.writeFile('./triangles.svg', svg, err => {
