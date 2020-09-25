@@ -1,7 +1,7 @@
 const fs = require('fs')
 
-const hyp = 10 // Horizintal "size" of the triangle
-const rowCount = 10 // How many rows to render
+const hyp = 50 // Horizintal "size" of the triangle
+const rowCount = 20 // How many rows to render
 // How many triangles per row.
 // There should double + 2 the number of rows for a square due to the overlap
 // from the alternative inverted layout
@@ -10,11 +10,18 @@ const fillEdges = false
 // Which direction should the triangles fade away to?
 const fadeDown = true
 // Ratio of the viewbox
-const ratio = [1, 1]
+const ratio = [0.5, 1]
 // Size the svg should be rendered at in the dom
-const size = [1000 * ratio[0], 1000 * [1]]
 const trianglesPerRow = (rowCount * (2 * ratio[0])) + (fillEdges ? 2 : 0)
-const viewBox = [hyp * rowCount * ratio[0], hyp * rowCount * ratio[1]]
+
+const size = [
+  hyp * rowCount * ratio[0],
+  hyp * rowCount * ratio[1]
+]
+const viewBox = [
+  hyp * rowCount * ratio[0],
+  hyp * rowCount * ratio[1]
+]
 
 
 
@@ -88,7 +95,7 @@ const gradientDirection = {
 // The width and height properties control how large the svg is rendered in the DOM
 // It's like having 1000px square jpg rendered in a 100px square img tag
 const svg = `<?xml version="1.0" encoding="UTF-8"?>
-<svg width="${size[0]}px" height="${size[1]}px" viewBox="0 0 ${viewBox[0]} ${viewBox[1]}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="${size[0]}px" height="${size[1]}px" viewBox="0 0 ${viewBox[0]} ${viewBox[1]}" stroke-width="1" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
     <linearGradient id="gradient" x1="${gradientDirection.x1}" x2="${gradientDirection.x2}" y1="${gradientDirection.y1}" y2="${gradientDirection.y2}">
       ${gradientColors.map(g => `<stop offset="${g.offset}" stop-color="${g.color}" />`).join(' ')}
@@ -100,8 +107,25 @@ const svg = `<?xml version="1.0" encoding="UTF-8"?>
   <rect width="${viewBox[0]}px" height="${viewBox[1]}px" mask="url(#hole-mask)" fill="url(#gradient)"></rect>
 </svg>`
 
+const html = content => `<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG Triangle pattern</title>
+</head>
+<body>
+  ${content}
+</body>
+</html>`
+
 fs.writeFile('./triangles.svg', svg, err => {
   if (err) return console.log('\n----------------', '\nERROR WRITING FILE\n', err, '\n\n\n', '----------------')
-  console.log('file written')
+  console.log('HTML file written')
+})
+
+
+fs.writeFile('./index.html', html(svg), err => {
+  if (err) return console.log('\n----------------', '\nERROR WRITING FILE\n', err, '\n\n\n', '----------------')
+  console.log('SVG file written')
 })
 
