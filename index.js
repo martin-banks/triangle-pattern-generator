@@ -1,18 +1,33 @@
 const fs = require('fs')
 
-const hyp = 50 // Horizintal "size" of the triangle
-const rowCount = 20 // How many rows to render
+
+// TODO
+// - Remove this hyp value; superceded by the row count and other calculations
+// - but still closely integrated in calculations
+const hyp = 1 // Horizontal "size" of the triangle
+
+
+
+// ? Config options
+const rowCount = 50 // How many rows to render
 // How many triangles per row.
 // There should double + 2 the number of rows for a square due to the overlap
 // from the alternative inverted layout
-// This allows for the triangles that clip off at either side
-const fillEdges = false
+// This allows for the triangles that clip off at either side or contain within the viewbox
+const fillEdges = true
 // Which direction should the triangles fade away to?
-const fadeDown = true
+// true -> dense at the bottom
+// false -> dense at the top
+const fadeUp = true
 // Ratio of the viewbox
-const ratio = [0.5, 1]
+const ratio = [1, 1]
 // Size the svg should be rendered at in the dom
 const trianglesPerRow = (rowCount * (2 * ratio[0])) + (fillEdges ? 2 : 0)
+// How tightly packed should the first row be; 0.5 -> 1
+// Higher the number the more dense the overall image will be
+// Going below 0.5 will result in the pattern beginning to invert (big -> small -> big)
+// Going over 1 introduces small overlap
+const maxDensity = 1
 
 const size = [
   hyp * rowCount * ratio[0],
@@ -23,9 +38,30 @@ const viewBox = [
   hyp * rowCount * ratio[1]
 ]
 
+// Colors used in the grandient
+// The colors are rendered from top to bottom
+// Add new colors with additional objects
+// The offset describes where in the gradient the value is introduced 0 -> 1
+const gradientColors = [
+  { color: 'gold', offset: '0' },
+  { color: 'orange', offset: '0.6' },
+  { color: 'firebrick', offset: '1' },
+]
+
+// Describes the direction of the gradient using 0 -> 1 values
+// 0 is the start of the gradient (left for x, top for y)
+// 1 is the end of the gradient (right for x, bottom for y)
+// x1, y1 are the starting values
+// x2, y2 are the end values
+const gradientDirection = {
+  x1: 0, x2: 0,
+  y1: 0, y2: 1,
+}
 
 
-// Each triangle (poly gon) contains 3 pairs of coords; one pair for each  node of the triangle
+
+
+// Each triangle (polygon) contains 3 pairs of coords; one pair for each  node of the triangle
 // The sets are created starting from the top left
 // The function creates the first, second and thrid node coords serparately
 // Which are then combined into a single 3d array
@@ -33,8 +69,8 @@ const viewBox = [
 // A full row of triangles is then returned
 // This allows for progressive reduction in scale and quantity of polygons row-by-row creating the 'fade' effect
 function createRow (rowIndex) {
-  const progress = (fadeDown ? (rowCount - rowIndex) : rowIndex) / rowCount
-  const reduction = (progress + 0.2) * (hyp * 0.35)
+  const progress = (fadeUp ? (rowCount - rowIndex) : rowIndex) / rowCount
+  const reduction = (progress + (1 - maxDensity)) * (hyp * 0.35)
 
   const firstPoints = [...new Array(trianglesPerRow)]
     .map((x, i) => [
@@ -71,23 +107,10 @@ function createRow (rowIndex) {
   return polygons
 }
 
-
 const multirowPolygon = [... new Array(rowCount)]
   .map((x, i) => createRow(i))
   .join('\n<!-- end of row -->\n')
 
-
-const gradientColors = [
-  { color: 'firebrick', offset: '0' },
-  { color: 'orange', offset: '0.5' },
-  { color: 'gold', offset: '1' },
-]
-const gradientDirection = {
-  x1: 0,
-  x2: 0,
-  y1: 1,
-  y2: 0,
-}
 
 // ? What is the viewbox ?
 // viewbox defines the raw size of the space the SVG elements are drawn in.
@@ -117,6 +140,7 @@ const html = content => `<html lang="en">
   ${content}
 </body>
 </html>`
+
 
 fs.writeFile('./triangles.svg', svg, err => {
   if (err) return console.log('\n----------------', '\nERROR WRITING FILE\n', err, '\n\n\n', '----------------')
